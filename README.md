@@ -12,14 +12,14 @@ Python scripts that demonstrte use of Okta's REST APIs for Unviversl Directory. 
 Last ud_script_template.py is a template. It has functions to make REST API calls (GET, GET paginated, POST, PUT and DELETE). 
 This script can be used to create any use case. Test the use case in Python and use this script to create same flow using functions.
 
-#Requirements to Run Script:
+# Requirements to Run Script:
 
 1) Python 2.7
 2) Python's requests libaray (run "pip install requests" from command line or shell). You may need t install pip i.e. Python's package
 manager on Windows system
 
 
-#How to Run Script
+# How to Run Script
 
 For first 5 script open the script in your favorite editor (e.g. Sublime) and set orgName including okta/oktapreview to your org e.g. 
 "myorg.okta" or "myorg.oktapreview". If there are any required attribute such as N, attributeName, attributeValue at the top, update 
