@@ -51,9 +51,9 @@ def CreateUsers():
 			user_info['credentials'] ['password'] = {}
 			user_info['credentials'] ['recovery_question'] = {}
 
-			user_info['credentials'] ['password']['value'] = "TestPass123$"
+			user_info['credentials'] ['password']['value'] = ""
 			user_info['credentials']['recovery_question'] ['question'] = "Who's a major player"
-			user_info['credentials']['recovery_question'] ['answer'] = "Ev3ry1"
+			user_info['credentials']['recovery_question'] ['answer'] = ""
 			
 			user_info_json = json.dumps(user_info)
 			
