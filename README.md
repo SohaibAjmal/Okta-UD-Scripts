@@ -22,8 +22,12 @@ manager on Windows system
 
 # How to Run Script
 
-For first 5 script open the script in your favorite editor (e.g. Sublime) and set orgName including okta/oktapreview to your org e.g. 
-"myorg.okta" or "myorg.oktapreview". If there are any required attribute such as N, attributeName, attributeValue at the top, update 
+For all scripts open the script in your favorite editor (e.g. Sublime) and set following variables
+
+orgName: including okta/oktapreview to your org e.g. "myorg.okta" or "myorg.oktapreview"
+apiKey: API token from Okta org (Security -> API -> Token)
+
+If there are any required attribute such as N, attributeName, attributeValue at the top, update 
 those to yoru need as well.
 
 In command prompt or shell navigate to folder where Python script is copied "cd ~/Documents/PythonScripts" and run the script e.g
