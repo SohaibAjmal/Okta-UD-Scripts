@@ -1,13 +1,7 @@
 import requests
 import json
-import re
-import sys
 import csv
-import openpyxl
 
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 orgName = "org-domain.oktapreview"
 apiKey = ""
@@ -33,9 +27,9 @@ def GetPaginatedResponse(url):
 
     if "errorCode" in responseJSON:
 
-        print "\nYou encountered following Error: \n"
-        print responseJSON
-        print "\n"
+        print("\nYou encountered following Error: \n")
+        print(responseJSON)
+        print("\n")
 
         return "Error"
 
@@ -84,9 +78,9 @@ def DELETERequest(url):
     responseJSON = response
 
     if "errorCode" in responseJSON:
-        print "\nYou encountered following Error: \n"
-        print responseJSON
-        print "\n"
+        print("\nYou encountered following Error: \n")
+        print(responseJSON)
+        print("\n")
 
         return "Error"
 
@@ -101,21 +95,21 @@ def DeleteUsers():
     ##### CSV Files #####
 
      # Deactive Users
-    deactiveUsers = open("Deactive-Users.csv", "wb")
+    deactiveUsers = open("Deactive-Users.csv", "w")
 
     deactiveWriter = csv.writer(deactiveUsers)
     
     deactiveWriter.writerow(["firstName", "lastName", "email", "login", "status"])
 
     #Deleted Users
-    deletedUsers = open("Deleted-Users.csv", "wb")
+    deletedUsers = open("Deleted-Users.csv", "w")
 
     deletedWriter = csv.writer(deletedUsers)
     
     deletedWriter.writerow(["firstName", "lastName", "email", "login", "status"])
 
      #Not Deleted Users
-    notDeletedUsers = open("Not-Deleted-Users.csv", "wb")
+    notDeletedUsers = open("Not-Deleted-Users.csv", "w")
 
     notDeletedWriter = csv.writer(notDeletedUsers)
     
@@ -126,8 +120,6 @@ def DeleteUsers():
     url = "https://"+orgName+".com/api/v1/users?filter=status eq \"DEPROVISIONED\""
 
     deactivedUsers = GetPaginatedResponse(url)
-
-    userInfoList = []
 
     deactivedUsersCount = 0
     deletedUsersCount = 0
@@ -148,7 +140,7 @@ def DeleteUsers():
 
         if response == "<Response [204]>":
 
-            print str(user["profile"]["login"]) + " is Deleted" 
+            print(str(user["profile"]["login"]) + " is Deleted" )
             deletedUsersCount += 1
 
             deletedWriter.writerow([user["profile"]["firstName"], user["profile"]["lastName"], user["profile"]["email"], user["profile"]["login"], user["status"]])
@@ -161,9 +153,9 @@ def DeleteUsers():
     
 
 
-    print "Deactivated Users: " + str(deactivedUsersCount)
-    print "Deleted Users: " + str(deletedUsersCount)
-    print "Not Deleted Users: " + str(notDeletedUserCount)
+    print("Deactivated Users: " + str(deactivedUsersCount))
+    print("Deleted Users: " + str(deletedUsersCount))
+    print("Not Deleted Users: " + str(notDeletedUserCount))
 
    
 
